@@ -1,7 +1,8 @@
 import {
   EMPLOYEE_UPDATE,
   EMPLOYEE_CREATE,
-  EMPLOYEE_EDIT
+  EMPLOYEE_EDIT,
+  EMPLOYEE_EDIT_SAVE_SUCCESS
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -24,6 +25,8 @@ export default (state = INITIAL_STATE, action) => {
         shift: action.payload.shift,
         uid: action.payload.uid
       };
+    case EMPLOYEE_EDIT_SAVE_SUCCESS:
+      return INITIAL_STATE;
     default:
       return state;
   }

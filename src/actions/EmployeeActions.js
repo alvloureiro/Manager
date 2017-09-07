@@ -4,7 +4,8 @@ import {
   EMPLOYEE_UPDATE,
   EMPLOYEE_CREATE,
   EMPLOYEES_FETCH_SUCCESS,
-  EMPLOYEE_EDIT
+  EMPLOYEE_EDIT,
+  EMPLOYEE_EDIT_SAVE_SUCCESS
 } from "./types";
 
 export const employeeUpdate = ({ prop, value }) => {
@@ -56,6 +57,9 @@ export const employeeEditSave = ({ name, phone, shift, uid }) => {
       .ref(`/users/${currentUser.uid}/employees/${uid}`)
       .update({ name, phone, shift })
       .then(() => {
+        dispatch({
+          type: EMPLOYEE_EDIT_SAVE_SUCCESS
+        });
         Actions.pop();
       });
   };
