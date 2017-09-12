@@ -69,3 +69,17 @@ export const employeeEditSave = ({ name, phone, shift, uid }) => {
 export const employeeCreateInit = () => {
   return { type: EMPLOYEE_FORM_CREATE_INIT };
 };
+
+export const employeeDelete = ({ uid }) => {
+  const { currentUser } = firebase.auth();
+
+  return () => {
+    firebase
+      .database()
+      .ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .remove()
+      .then(() => {
+        Actions.pop();
+      });
+  };
+};
