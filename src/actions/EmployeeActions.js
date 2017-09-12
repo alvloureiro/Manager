@@ -5,7 +5,8 @@ import {
   EMPLOYEE_CREATE,
   EMPLOYEES_FETCH_SUCCESS,
   EMPLOYEE_EDIT,
-  EMPLOYEE_EDIT_SAVE_SUCCESS
+  EMPLOYEE_EDIT_SAVE_SUCCESS,
+  EMPLOYEE_FORM_CREATE_INIT
 } from "./types";
 
 export const employeeUpdate = ({ prop, value }) => {
@@ -63,4 +64,8 @@ export const employeeEditSave = ({ name, phone, shift, uid }) => {
         Actions.pop();
       });
   };
+};
+
+export const employeeCreateInit = () => {
+  return { type: EMPLOYEE_FORM_CREATE_INIT };
 };

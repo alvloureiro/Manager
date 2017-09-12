@@ -10,3 +10,4 @@ export const EMPLOYEES_FETCH_SUCCESS = "employees_fetch_success";
 export const EMPLOYEE_EDIT = "employee_edit";
 export const EMPLOYEE_EDIT_SAVE = "employee_edit_save";
 export const EMPLOYEE_EDIT_SAVE_SUCCESS = "employee_edit_save_success";
+export const EMPLOYEE_FORM_CREATE_INIT = "employee_form_create_init";
