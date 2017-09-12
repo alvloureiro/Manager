@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Communications from "react-native-communications";
 import { employeeUpdate, employeeEdit, employeeEditSave } from "../../actions";
-import { Card, CardSection, Button } from "../common";
+import { Card, CardSection, Button, ConfirmDialog } from "../common";
 import EmployeeForm from "./EmployeeForm";
 
 class EmployeeEdit extends Component {
@@ -19,12 +20,28 @@ class EmployeeEdit extends Component {
     });
   };
 
+  onTextClick = () => {
+    const { phone, shift } = this.props;
+    Communications.text(phone, `Your upcome shift is on ${shift}`);
+  };
+
+  onFireClick = () => {};
+
   render() {
     return (
       <Card>
         <EmployeeForm />
+
         <CardSection>
           <Button onPress={this.onButtonClick}>Save Changes</Button>
+        </CardSection>
+
+        <CardSection>
+          <Button onPress={this.onTextClick}>Text employee</Button>
+        </CardSection>
+
+        <CardSection>
+          <Button onPress={this.onFireClick}>Fire</Button>
         </CardSection>
       </Card>
     );
